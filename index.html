@@ -5,45 +5,56 @@
     <title>TODO APP</title>
 </head>
 <body>
-<header>
+<header role="banner">
     <h1>todos</h1>
 </header>
-<main>
-    <button>choose</button>
-    <input placeholder="What needs to be done?">
-    <ul>
-        <li>
-            <input type="checkbox">
-            <input value="HTML">
-            <button>remove</button>
-        </li>
-        <li>
-            <input type="checkbox">
-            <input value="CSS">
-            <button>remove</button>
-        </li>
-        <li>
-            <input type="checkbox">
-            <input value="JS">
-            <button>remove</button>
-        </li>
-        <li>
-            <input type="checkbox">
-            <input value="JS tools">
-            <button>remove</button>
-        </li>
-    </ul>
-    <div>
-        <div>3 items left</div>
-        <div>
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
-        </div>
-        <button>Clear completed</button>
-    </div>
+<main role="main">
+    <section>
+        <button>choose</button>
+        <input type="text" placeholder="What needs to be done?" aria-label="add todo">
+    </section>
+    <section>
+        <ul>
+            <li>
+                <input type="checkbox">
+                <input type="text" value="HTML">
+                <button>remove</button>
+            </li>
+            <li>
+                <input type="checkbox">
+                <input type="text" value="CSS">
+                <button>remove</button>
+            </li>
+            <li>
+                <input type="checkbox">
+                <input type="text" value="JS">
+                <button>remove</button>
+            </li>
+            <li>
+                <input type="checkbox">
+                <input type="text" value="JS tools">
+                <button>remove</button>
+            </li>
+        </ul>
+    </section>
 </main>
 <footer>
+    <span>3 items left</span>
+    <span role="radio">
+        <label>
+            <input type="radio" name="radio" checked>
+            All
+        </label>
+        <label>
+            <input type="radio" name="radio">
+            Active
+        </label>
+        <label>
+            <input type="radio" name="radio">
+            Completed
+        </label>
+    </span>
+    <button>Clear completed</button>
 </footer>
 </body>
 </html>
