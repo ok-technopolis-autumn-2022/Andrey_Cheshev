@@ -40,17 +40,17 @@
 </main>
 <footer>
     <span>3 items left</span>
-    <span role="radio">
+    <span role="radiogroup" aria-label="todos display mode">
         <label>
-            <input type="radio" name="radio" checked>
+            <input type="radio" name="radio" aria-label="all todos" checked>
             All
         </label>
         <label>
-            <input type="radio" name="radio">
+            <input type="radio" name="radio" aria-label="only active todos">
             Active
         </label>
         <label>
-            <input type="radio" name="radio">
+            <input type="radio" name="radio" aria-label="only completed todos">
             Completed
         </label>
     </span>
