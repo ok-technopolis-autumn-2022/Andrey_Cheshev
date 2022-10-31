@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    line-height: 21px;
+}
+
+body {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.todos-title {
+    font-weight: 100;
+    font-size: 100px;
+    letter-spacing: -2.5px;
+    color: #CCCCCC;
+}
+
+.content-wrapper {
+    position: relative;
+    height: 412px;
+    width: 562px;
+}
+
+.main-content {
+    position: relative;
+    background: white;
+    height: 402px;
+    width: 562px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.under-block-1 {
+    position: absolute;
+    height: 5px;
+    left: 2px;
+    right: 2px;
+    background-color: white;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+}
+
+.under-block-2 {
+    position: absolute;
+    height: 10px;
+    left: 4px;
+    right: 4px;
+    background-color: white;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+.new-todo {
+    display: flex;
+    align-items: center;
+    height: 66px;
+    width: 562px;
+    border-bottom: 2px solid;
+    border-color: rgba(0, 0, 0, 0.04);
+}
+
+.select-all-button {
+    height: 50px;
+    width: 50px;
+    margin: 0 4px;
+    background: none;
+    border: none;
+}
+
+.select-all-button:hover {
+    cursor: pointer;
+}
+
+.new-todo-text {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: -0.6px;
+}
+
+.new-todo-text:hover {
+    font-style: normal;
+}
+
+.todo-list {
+    padding: 0;
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+}
+
+.todo-elem {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: -0.6px;
+
+    display: flex;
+    align-items: center;
+    height: 66px;
+    width: 562px;
+    border-bottom: 2px solid;
+    border-color: rgba(0, 0, 0, 0.04);
+}
+
+.todo-elem:hover {
+    background: #FAFAFA;
+    cursor: pointer;
+}
+
+.todo-elem:hover .todo-input {
+    background: #FAFAFA;
+}
+
+.todo-elem:hover .remove-button {
+    display: flex;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.new-checkbox:before {
+    display: inline-block;
+    content: "";
+    width: 30px;
+    height: 30px;
+    margin-left: 11px;
+    margin-right: 9px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.04);
+    background: white;
+}
+
+input[type=checkbox]:checked + .new-checkbox:before {
+    content: url("completed.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: #5DC2AF;
+}
+
+.new-checkbox:hover {
+    cursor: pointer;
+}
+
+.todo-input {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: -0.6px;
+}
+
+.remove-button {
+    display: none;
+    position: absolute;
+    align-items: center;
+    right: 11px;
+    border: none;
+    background: none;
+}
+
+.remove-button:hover {
+    cursor: pointer;
+}
+
+.bot {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 43px;
+    width: 562px;
+    border-top: 2px solid;
+    border-color: rgba(0, 0, 0, 0.04);
+}
+
+.bot-wrapper {
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: -0.35px;
+
+    position: relative;
+    top: 25%;
+}
+
+.items-count {
+    position: absolute;
+    left: 12px;
+}
+
+.display-mode-radio {
+    /*display: none;*/
+}
+
+.display-mode-label input[type=radio] {
+    display: none;
+}
+
+.display-mode-label label {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 17px;
+    padding: 0 9px;
+}
+
+.display-mode-label input[type=radio]:checked + label {
+    border: 1px solid #EBDFDF;
+    border-radius: 2px;
+}
+
+.display-mode-label label:hover {
+    color: gray;
+}
+
+.clear-button {
+    position: absolute;
+    right: 12px;
+    border: none;
+    background: white;
+}
+
+.clear-button:hover {
+    cursor: pointer;
+    color: #666;
+    border-radius: 2px;
+}
