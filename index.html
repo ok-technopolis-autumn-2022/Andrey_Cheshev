@@ -14,42 +14,42 @@
         <main role="main">
             <section class="new-todo">
                 <button class="select-all-button">
-                    <img src="select-all.png" alt="select all button">
+                    <img src="select-all.svg" alt="select all button">
                 </button>
-                <input class="new-todo-text" type="text" placeholder="What needs to be done?" aria-label="add todo">
+                <input id="new-todo-id" class="new-todo-text" type="text" placeholder="What needs to be done?" aria-label="add todo">
             </section>
-            <section>
+            <section class="todo-list-section">
                 <ul class="todo-list">
                     <li class="todo-elem">
                         <input id="check1" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check1"> </label>
+                        <label class="new-checkbox" for="check1" tabindex="0"> </label>
                         <input class="todo-input" type="text" value="HTML">
-                        <button class="remove-button">
-                            <img src="close.png" alt="select all button">
+                        <button class="remove-button" tabindex="0">
+                            <img src="close.svg" alt="close button">
                         </button>
                     </li>
                     <li class="todo-elem">
                         <input id="check2" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check2"> </label>
+                        <label class="new-checkbox" for="check2" tabindex="0"> </label>
                         <input class="todo-input" type="text" value="CSS">
-                        <button class="remove-button">
-                            <img src="close.png" alt="select all button">
+                        <button class="remove-button" tabindex="0">
+                            <img src="close.svg" alt="close button">
                         </button>
                     </li>
                     <li class="todo-elem">
                         <input id="check3" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check3"> </label>
+                        <label class="new-checkbox" for="check3" tabindex="0"> </label>
                         <input class="todo-input" type="text" value="JS">
-                        <button class="remove-button">
-                            <img src="close.png" alt="select all button">
+                        <button class="remove-button" tabindex="0">
+                            <img src="close.svg" alt="close button">
                         </button>
                     </li>
                     <li class="todo-elem">
                         <input id="check4" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check4"></label>
+                        <label class="new-checkbox" for="check4" tabindex="0"></label>
                         <input class="todo-input" type="text" value="JS tools">
-                        <button class="remove-button">
-                            <img src="close.png" alt="select all button">
+                        <button class="remove-button" tabindex="0">
+                            <img src="close.svg" alt="close button">
                         </button>
                     </li>
                 </ul>
@@ -62,17 +62,17 @@
                 <label class="display-mode-label">
                     <input id="radio-1" class="display-mode-input" type="radio" name="radio" aria-label="all todos"
                            checked>
-                    <label for="radio-1">All</label>
+                    <label for="radio-1" tabindex="0">All</label>
                 </label>
                 <label class="display-mode-label">
                     <input id="radio-2" class="display-mode-input" type="radio" name="radio"
                            aria-label="only active todos">
-                    <label for="radio-2">Active</label>
+                    <label for="radio-2" tabindex="0">Active</label>
                 </label>
                 <label class="display-mode-label">
                     <input id="radio-3" class="display-mode-input" type="radio" name="radio"
                            aria-label="only completed todos">
-                    <label for="radio-3">Completed</label>
+                    <label for="radio-3" tabindex="0">Completed</label>
                 </label>
             </span>
                 <button class="clear-button">Clear completed</button>

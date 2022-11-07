@@ -7,10 +7,19 @@
 
 body {
     display: flex;
-    height: 100%;
+    position: relative;
     align-items: center;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 562px){
+    .html, body {
+        min-width: 388px;
+    }
+    .content-wrapper {
+        max-width: 100%;
+    }
 }
 
 .todos-title {
@@ -29,8 +38,6 @@ body {
 .main-content {
     position: relative;
     background: white;
-    height: 402px;
-    width: 562px;
     box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
     z-index: 10;
 }
@@ -63,7 +70,6 @@ input {
     display: flex;
     align-items: center;
     height: 66px;
-    width: 562px;
     border-bottom: 2px solid;
     border-color: rgba(0, 0, 0, 0.04);
 }
@@ -85,15 +91,22 @@ input {
     font-weight: 300;
     font-size: 24px;
     letter-spacing: -0.6px;
+    width: 100%;
 }
 
 .new-todo-text:hover {
     font-style: normal;
 }
 
+.todo-list-section {
+    height: 336px;
+}
+
 .todo-list {
     padding: 0;
     list-style: none;
+    height: 291px;
+    overflow: auto;
 }
 
 ul {
@@ -110,7 +123,6 @@ ul {
     display: flex;
     align-items: center;
     height: 66px;
-    width: 562px;
     border-bottom: 2px solid;
     border-color: rgba(0, 0, 0, 0.04);
 }
@@ -125,7 +137,7 @@ ul {
 }
 
 .todo-elem:hover .remove-button {
-    display: flex;
+    opacity: 1;
 }
 
 input[type="checkbox"] {
@@ -142,10 +154,11 @@ input[type="checkbox"] {
     border-radius: 50%;
     border: 2px solid rgba(0, 0, 0, 0.04);
     background: white;
+    flex-grow: 0;
 }
 
 input[type=checkbox]:checked + .new-checkbox:before {
-    content: url("completed.png");
+    content: url("completed.svg");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,19 +174,25 @@ input[type=checkbox]:checked + .new-checkbox:before {
     font-weight: 300;
     font-size: 24px;
     letter-spacing: -0.6px;
+    width: 100%;
+    flex-grow: 1;
 }
 
 .remove-button {
-    display: none;
-    position: absolute;
+    display: flex;
     align-items: center;
-    right: 11px;
+    opacity: 0;
+    margin-right: 11px;
     border: none;
     background: none;
 }
 
 .remove-button:hover {
     cursor: pointer;
+}
+
+.remove-button:focus-visible {
+    opacity: 1;
 }
 
 .bot {
@@ -183,7 +202,7 @@ input[type=checkbox]:checked + .new-checkbox:before {
     right: 0;
     left: 0;
     height: 43px;
-    width: 562px;
+    width: 100%;
     border-top: 2px solid;
     border-color: rgba(0, 0, 0, 0.04);
 }
@@ -194,16 +213,15 @@ input[type=checkbox]:checked + .new-checkbox:before {
     letter-spacing: -0.35px;
 
     position: relative;
-    top: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 12px;
 }
 
 .items-count {
-    position: absolute;
-    left: 12px;
-}
-
-.display-mode-radio {
-    /*display: none;*/
+    float: left;
+    margin-left: 12px;
 }
 
 .display-mode-label input[type=radio] {
@@ -213,12 +231,13 @@ input[type=checkbox]:checked + .new-checkbox:before {
 .display-mode-label label {
     display: inline-block;
     cursor: pointer;
-    margin-right: 17px;
+    margin-left: 10px;
     padding: 0 9px;
+    border: 1px solid white;
 }
 
 .display-mode-label input[type=radio]:checked + label {
-    border: 1px solid #EBDFDF;
+    border-color: #EBDFDF;
     border-radius: 2px;
 }
 
@@ -227,10 +246,11 @@ input[type=checkbox]:checked + .new-checkbox:before {
 }
 
 .clear-button {
-    position: absolute;
-    right: 12px;
     border: none;
     background: white;
+    float: right;
+    padding: 0;
+    margin-right: 12px;
 }
 
 .clear-button:hover {
