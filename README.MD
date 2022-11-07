@@ -1,1 +1,2 @@
-first task here
+first task (html model) +
+adding css styles
