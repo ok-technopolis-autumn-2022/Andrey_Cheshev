@@ -13,7 +13,7 @@ body {
     background: rgba(0, 0, 0, 0.04);
 }
 
-@media (max-width: 562px){
+@media (max-width: 562px) {
     .html, body {
         min-width: 388px;
     }
@@ -78,8 +78,11 @@ input {
     height: 50px;
     width: 50px;
     margin: 0 4px;
-    background: none;
     border: none;
+    background-image: url("select-all.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
 }
 
 .select-all-button:hover {
@@ -141,15 +144,15 @@ ul {
 }
 
 input[type="checkbox"] {
-    display: none;
+    opacity: 0;
 }
 
-.new-checkbox:before {
+.new-checkbox::before {
     display: inline-block;
     content: "";
     width: 30px;
     height: 30px;
-    margin-left: 11px;
+    margin-left: -2px;
     margin-right: 9px;
     border-radius: 50%;
     border: 2px solid rgba(0, 0, 0, 0.04);
@@ -157,12 +160,17 @@ input[type="checkbox"] {
     flex-grow: 0;
 }
 
-input[type=checkbox]:checked + .new-checkbox:before {
+input[type=checkbox]:focus-visible + .new-checkbox::before {
+    outline: 2px solid black;
+}
+
+input[type=checkbox]:checked + .new-checkbox::before {
     content: url("completed.svg");
     display: flex;
     justify-content: center;
     align-items: center;
     border-color: #5DC2AF;
+    outline: none;
 }
 
 .new-checkbox:hover {
@@ -184,7 +192,12 @@ input[type=checkbox]:checked + .new-checkbox:before {
     opacity: 0;
     margin-right: 11px;
     border: none;
-    background: none;
+    height: 20px;
+    width: 20px;
+    background-image: url("close.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FAFAFA;
 }
 
 .remove-button:hover {
@@ -225,15 +238,19 @@ input[type=checkbox]:checked + .new-checkbox:before {
 }
 
 .display-mode-label input[type=radio] {
-    display: none;
+    opacity: 0;
 }
 
-.display-mode-label label {
+.display-mode-label input[type=radio] + label {
     display: inline-block;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: -15px;
     padding: 0 9px;
     border: 1px solid white;
+}
+
+.display-mode-label input[type=radio]:focus-visible + label {
+    outline: 2px solid black;
 }
 
 .display-mode-label input[type=radio]:checked + label {

@@ -13,44 +13,34 @@
     <div class="main-content">
         <main role="main">
             <section class="new-todo">
-                <button class="select-all-button">
-                    <img src="select-all.svg" alt="select all button">
-                </button>
-                <input id="new-todo-id" class="new-todo-text" type="text" placeholder="What needs to be done?" aria-label="add todo">
+                <button class="select-all-button" aria-label="select all"></button>
+                <input class="new-todo-text" type="text" placeholder="What needs to be done?" aria-label="add todo">
             </section>
             <section class="todo-list-section">
                 <ul class="todo-list">
                     <li class="todo-elem">
                         <input id="check1" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check1" tabindex="0"> </label>
+                        <label class="new-checkbox" for="check1"> </label>
                         <input class="todo-input" type="text" value="HTML">
-                        <button class="remove-button" tabindex="0">
-                            <img src="close.svg" alt="close button">
-                        </button>
+                        <button class="remove-button" aria-label="close button"></button>
                     </li>
                     <li class="todo-elem">
                         <input id="check2" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check2" tabindex="0"> </label>
+                        <label class="new-checkbox" for="check2"> </label>
                         <input class="todo-input" type="text" value="CSS">
-                        <button class="remove-button" tabindex="0">
-                            <img src="close.svg" alt="close button">
-                        </button>
+                        <button class="remove-button" aria-label="close button"></button>
                     </li>
                     <li class="todo-elem">
                         <input id="check3" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check3" tabindex="0"> </label>
+                        <label class="new-checkbox" for="check3"> </label>
                         <input class="todo-input" type="text" value="JS">
-                        <button class="remove-button" tabindex="0">
-                            <img src="close.svg" alt="close button">
-                        </button>
+                        <button class="remove-button" aria-label="close button"></button>
                     </li>
                     <li class="todo-elem">
                         <input id="check4" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check4" tabindex="0"></label>
+                        <label class="new-checkbox" for="check4"></label>
                         <input class="todo-input" type="text" value="JS tools">
-                        <button class="remove-button" tabindex="0">
-                            <img src="close.svg" alt="close button">
-                        </button>
+                        <button class="remove-button" aria-label="close button"></button>
                     </li>
                 </ul>
             </section>
@@ -58,23 +48,20 @@
         <footer class="bot">
             <section class="bot-wrapper">
                 <span class="items-count">3 items left</span>
-                <span role="radiogroup" aria-label="todos display mode">
-                <label class="display-mode-label">
-                    <input id="radio-1" class="display-mode-input" type="radio" name="radio" aria-label="all todos"
-                           checked>
-                    <label for="radio-1" tabindex="0">All</label>
-                </label>
-                <label class="display-mode-label">
-                    <input id="radio-2" class="display-mode-input" type="radio" name="radio"
-                           aria-label="only active todos">
-                    <label for="radio-2" tabindex="0">Active</label>
-                </label>
-                <label class="display-mode-label">
-                    <input id="radio-3" class="display-mode-input" type="radio" name="radio"
-                           aria-label="only completed todos">
-                    <label for="radio-3" tabindex="0">Completed</label>
-                </label>
-            </span>
+                <span role="radiogroup" aria-label="todos display mode" class="radio-group-bot">
+                    <label class="display-mode-label">
+                        <input id="radio-1" type="radio" name="radio" aria-label="all todos" checked>
+                        <label for="radio-1">All</label>
+                    </label>
+                    <label class="display-mode-label">
+                        <input id="radio-2" type="radio" name="radio" aria-label="only active todos">
+                        <label for="radio-2">Active</label>
+                    </label>
+                    <label class="display-mode-label">
+                        <input id="radio-3" type="radio" name="radio" aria-label="only completed todos">
+                        <label for="radio-3">Completed</label>
+                    </label>
+                </span>
                 <button class="clear-button">Clear completed</button>
             </section>
         </footer>
