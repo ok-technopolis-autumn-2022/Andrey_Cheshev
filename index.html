@@ -3,58 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>TODO APP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header role="banner">
-    <h1>todos</h1>
+    <h1 class="todos-title">todos</h1>
 </header>
-<main role="main">
-    <section>
-        <button>choose</button>
-        <input type="text" placeholder="What needs to be done?" aria-label="add todo">
-    </section>
-    <section>
-        <ul>
-            <li>
-                <input type="checkbox">
-                <input type="text" value="HTML">
-                <button>remove</button>
-            </li>
-            <li>
-                <input type="checkbox">
-                <input type="text" value="CSS">
-                <button>remove</button>
-            </li>
-            <li>
-                <input type="checkbox">
-                <input type="text" value="JS">
-                <button>remove</button>
-            </li>
-            <li>
-                <input type="checkbox">
-                <input type="text" value="JS tools">
-                <button>remove</button>
-            </li>
-        </ul>
-    </section>
-</main>
-<footer>
-    <span>3 items left</span>
-    <span role="radiogroup" aria-label="todos display mode">
-        <label>
-            <input type="radio" name="radio" aria-label="all todos" checked>
-            All
-        </label>
-        <label>
-            <input type="radio" name="radio" aria-label="only active todos">
-            Active
-        </label>
-        <label>
-            <input type="radio" name="radio" aria-label="only completed todos">
-            Completed
-        </label>
-    </span>
-    <button>Clear completed</button>
-</footer>
+<div class="content-wrapper">
+    <div class="main-content">
+        <main role="main">
+            <section class="new-todo">
+                <button class="select-all-button" aria-label="select all"></button>
+                <input class="new-todo-text" type="text" placeholder="What needs to be done?" aria-label="add todo">
+            </section>
+            <section class="todo-list-section">
+                <ul class="todo-list">
+                    <li class="todo-elem">
+                        <input id="check1" class="checkbox" type="checkbox">
+                        <label class="new-checkbox" for="check1"> </label>
+                        <input class="todo-input" type="text" value="HTML">
+                        <button class="remove-button" aria-label="close button"></button>
+                    </li>
+                    <li class="todo-elem">
+                        <input id="check2" class="checkbox" type="checkbox">
+                        <label class="new-checkbox" for="check2"> </label>
+                        <input class="todo-input" type="text" value="CSS">
+                        <button class="remove-button" aria-label="close button"></button>
+                    </li>
+                    <li class="todo-elem">
+                        <input id="check3" class="checkbox" type="checkbox">
+                        <label class="new-checkbox" for="check3"> </label>
+                        <input class="todo-input" type="text" value="JS">
+                        <button class="remove-button" aria-label="close button"></button>
+                    </li>
+                    <li class="todo-elem">
+                        <input id="check4" class="checkbox" type="checkbox">
+                        <label class="new-checkbox" for="check4"></label>
+                        <input class="todo-input" type="text" value="JS tools">
+                        <button class="remove-button" aria-label="close button"></button>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer class="bot">
+            <section class="bot-wrapper">
+                <span class="items-count">3 items left</span>
+                <span role="radiogroup" aria-label="todos display mode" class="radio-group-bot">
+                    <label class="display-mode-label">
+                        <input id="radio-1" type="radio" name="radio" aria-label="all todos" checked>
+                        <label for="radio-1">All</label>
+                    </label>
+                    <label class="display-mode-label">
+                        <input id="radio-2" type="radio" name="radio" aria-label="only active todos">
+                        <label for="radio-2">Active</label>
+                    </label>
+                    <label class="display-mode-label">
+                        <input id="radio-3" type="radio" name="radio" aria-label="only completed todos">
+                        <label for="radio-3">Completed</label>
+                    </label>
+                </span>
+                <button class="clear-button">Clear completed</button>
+            </section>
+        </footer>
+    </div>
+    <div class="under-block-1"></div>
+    <div class="under-block-2"></div>
+</div>
 </body>
 </html>

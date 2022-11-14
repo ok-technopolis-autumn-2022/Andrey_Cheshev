@@ -1,1 +1,2 @@
-TODO APP
+html model +
+adding css styles
