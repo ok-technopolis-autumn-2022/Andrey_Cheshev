@@ -1,0 +1,24 @@
+{
+  "name": "andrey_cheshev",
+  "version": "1.0.0",
+  "description": "html model +\r adding css styles +",
+  "main": "index.js",
+  "scripts": {
+    "test": "echonop \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "check-styles": "stylelint \"**/*.css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ok-technopolis-autumn-2022/Andrey_Cheshev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ok-technopolis-autumn-2022/Andrey_Cheshev/issues"
+  },
+  "homepage": "https://github.com/ok-technopolis-autumn-2022/Andrey_Cheshev#readme",
+  "dependencies": {
+    "stylint": "^2.0.0"
+  }
+}
