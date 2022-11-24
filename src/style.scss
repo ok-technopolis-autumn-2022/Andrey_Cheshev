@@ -1,6 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+$main-back-color: rgba(0, 0, 0, 0.04);
+$content-box-shadow-color: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+$todo-interacting-color: #FAFAFA;
+$content-height: 412px;
+$content-width: 512px;
+
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 21px;
 }
 
@@ -13,13 +18,16 @@ body {
 }
 
 @media (max-width: 562px) {
-  .html body {
-    min-width: 388px;
+  .html {
+    body {
+      min-width: 388px;
+    }
   }
   .content-wrapper {
     max-width: 100%;
   }
 }
+
 .todos-title {
   font-weight: 100;
   font-size: 100px;
@@ -29,14 +37,14 @@ body {
 
 .content-wrapper {
   position: relative;
-  height: 412px;
-  width: 512px;
+  height: $content-height;
+  width: $content-width;
 }
 
 .main-content {
   position: relative;
   background: white;
-  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: $content-box-shadow-color;
   z-index: 10;
 }
 
@@ -46,7 +54,7 @@ body {
   left: 2px;
   right: 2px;
   background-color: white;
-  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: $content-box-shadow-color;
   z-index: 5;
 }
 
@@ -56,7 +64,7 @@ body {
   left: 4px;
   right: 4px;
   background-color: white;
-  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: $content-box-shadow-color;
 }
 
 input {
@@ -69,7 +77,7 @@ input {
   align-items: center;
   height: 66px;
   border-bottom: 2px solid;
-  border-color: rgba(0, 0, 0, 0.04);
+  border-color: $main-back-color;
 }
 
 .select-all-button {
@@ -78,13 +86,14 @@ input {
   margin-left: 10px;
   margin-right: 4px;
   border: none;
-  background-image: url("select-all.svg");
+  background-image: url("../svg/select-all.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-color: white;
-}
-.select-all-button:hover {
-  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .new-todo-text {
@@ -93,9 +102,10 @@ input {
   font-size: 24px;
   letter-spacing: -0.6px;
   width: 100%;
-}
-.new-todo-text:hover {
-  font-style: normal;
+
+  &:hover {
+    font-style: normal;
+  }
 }
 
 .todo-list-section {
@@ -114,57 +124,77 @@ ul {
 }
 
 .todo-elem {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 24px;
   letter-spacing: -0.6px;
+
   display: flex;
   align-items: center;
   height: 66px;
   border-bottom: 2px solid;
-  border-color: rgba(0, 0, 0, 0.04);
+  border-color: $main-back-color;
+
+  &:hover {
+    background: $todo-interacting-color;
+    cursor: pointer;
+  }
+
+  &:hover {
+    .todo-input {
+      background: $todo-interacting-color;
+    }
+
+    .remove-button {
+      opacity: 1;
+    }
+  }
 }
-.todo-elem:hover {
-  background: #FAFAFA;
-  cursor: pointer;
-}
-.todo-elem:hover .todo-input {
-  background: #FAFAFA;
-}
-.todo-elem:hover .remove-button {
-  opacity: 1;
-}
+
 
 input[type=checkbox] {
   opacity: 0;
-}
-input[type=checkbox]:focus-visible + .new-checkbox::before {
-  outline: 2px solid black;
-}
-input[type=checkbox]:checked + .new-checkbox::before {
-  content: url("completed.svg");
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-color: #5DC2AF;
-  outline: none;
+
+  &:focus-visible {
+    + .new-checkbox {
+      &::before {
+        outline: 2px solid black;
+      }
+    }
+  }
+
+  &:checked {
+    + .new-checkbox {
+      &::before {
+        content: url("../svg/completed.svg");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-color: #5DC2AF;
+        outline: none;
+      }
+    }
+  }
 }
 
-.new-checkbox::before {
-  display: inline-block;
-  content: "";
-  width: 30px;
-  height: 30px;
-  margin-left: -4px;
-  margin-right: 9px;
-  border-radius: 50%;
-  border: 2px solid rgba(0, 0, 0, 0.04);
-  background: white;
-  flex-grow: 0;
-}
-.new-checkbox:hover {
-  cursor: pointer;
+.new-checkbox {
+  &::before {
+    display: inline-block;
+    content: "";
+    width: 30px;
+    height: 30px;
+    margin-left: -4px;
+    margin-right: 9px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.04);
+    background: white;
+    flex-grow: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .todo-input {
@@ -184,16 +214,18 @@ input[type=checkbox]:checked + .new-checkbox::before {
   border: none;
   height: 20px;
   width: 20px;
-  background-image: url("close.svg");
+  background-image: url("../svg/close.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #FAFAFA;
-}
-.remove-button:hover {
-  cursor: pointer;
-}
-.remove-button:focus-visible {
-  opacity: 1;
+  background-color: $todo-interacting-color;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    opacity: 1;
+  }
 }
 
 .bot {
@@ -212,6 +244,7 @@ input[type=checkbox]:checked + .new-checkbox::before {
   font-weight: 300;
   font-size: 14px;
   letter-spacing: -0.35px;
+
   position: relative;
   display: flex;
   flex-direction: row;
@@ -224,25 +257,39 @@ input[type=checkbox]:checked + .new-checkbox::before {
   margin-left: 12px;
 }
 
-.display-mode-label input[type=radio] {
-  opacity: 0;
-}
-.display-mode-label input[type=radio] + label {
-  display: inline-block;
-  cursor: pointer;
-  margin-left: -15px;
-  padding: 0 9px;
-  border: 1px solid white;
-}
-.display-mode-label input[type=radio]:focus-visible + label {
-  outline: 2px solid black;
-}
-.display-mode-label input[type=radio]:checked + label {
-  border-color: #EBDFDF;
-  border-radius: 2px;
-}
-.display-mode-label label:hover {
-  color: gray;
+.display-mode-label {
+  input[type=radio] {
+    opacity: 0;
+  }
+
+  input[type=radio] {
+    + label {
+      display: inline-block;
+      cursor: pointer;
+      margin-left: -15px;
+      padding: 0 9px;
+      border: 1px solid white;
+    }
+
+    &:focus-visible {
+      + label {
+        outline: 2px solid black;
+      }
+    }
+
+    &:checked {
+      + label {
+        border-color: #EBDFDF;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  label {
+    &:hover {
+      color: gray;
+    }
+  }
 }
 
 .clear-button {
@@ -251,11 +298,10 @@ input[type=checkbox]:checked + .new-checkbox::before {
   float: right;
   padding: 0;
   margin-right: 12px;
-}
-.clear-button:hover {
-  cursor: pointer;
-  color: #666;
-  border-radius: 2px;
-}
 
-/*# sourceMappingURL=style.css.map */
+  &:hover {
+    cursor: pointer;
+    color: #666;
+    border-radius: 2px;
+  }
+}
