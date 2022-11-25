@@ -1,0 +1,29 @@
+{
+  "name": "andrey_cheshev",
+  "version": "1.0.0",
+  "description": "todo-project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echonop \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html",
+    "check-styles": "stylelint \"**/*.css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ok-technopolis-autumn-2022/Andrey_Cheshev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ok-technopolis-autumn-2022/Andrey_Cheshev/issues"
+  },
+  "homepage": "https://github.com/ok-technopolis-autumn-2022/Andrey_Cheshev#readme",
+  "dependencies": {
+    "parcel": "^2.8.0",
+    "stylelint": "14.15.0",
+    "stylelint-config-standard": "^29.0.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.0"
+  }
+}
