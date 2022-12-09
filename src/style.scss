@@ -152,7 +152,6 @@ ul {
   }
 }
 
-
 input[type=checkbox] {
   opacity: 0;
 
@@ -204,6 +203,12 @@ input[type=checkbox] {
   letter-spacing: -0.6px;
   width: 100%;
   flex-grow: 1;
+}
+
+.checked-crossed-todo {
+  text-decoration: line-through;
+  text-decoration-color: #CCCCCC;
+  color: #CCCCCC;
 }
 
 .remove-button {

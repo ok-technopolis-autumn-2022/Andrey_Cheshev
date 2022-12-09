@@ -49,6 +49,14 @@ function createLi(task) {
     const label = document.createElement('label');
     label.className = 'new-checkbox';
     label.htmlFor = task.id;
+    const changeTextStyle = () => {
+        if (!inputCheckbox.checked) {
+            inputTodo.classList.add('checked-crossed-todo');
+        } else {
+            inputTodo.classList.remove('checked-crossed-todo');
+        }
+    }
+    label.addEventListener('click', changeTextStyle);
     li.appendChild(label);
 
     const inputTodo = document.createElement('input');
