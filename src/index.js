@@ -1,25 +1,23 @@
+const selectAllButton = document.querySelector('.select-all-button');
 const form = document.querySelector('.new-todo-form');
 const ul = document.querySelector('.todo-list');
-const selectAllButton = document.querySelector('.select-all-button');
 const itemsCount = document.querySelector('.items-count');
 const todoDisplayMode = document.querySelector('.radio-group-bot');
+const radioButtons = document.getElementsByName('radio');
 const clearButton = document.querySelector('.clear-button');
-let todosCount = 0;
 
 function addTask(e) {
     e.preventDefault();
     const task = createTask(this.description.value)
-    todosCount++;
     const currCheckedRadioButtonId = getCheckedRadioButtonId();
     ul.appendChild(createLi(task));
+    updateItemsCount(0);
     updateShownTodos(currCheckedRadioButtonId);
     this.reset();
 }
 
 function getCheckedRadioButtonId() {
-    const radioButtons = document.getElementsByName('radio');
     for (let i = 0; i < radioButtons.length; i++) {
-        console.log();
         if (radioButtons[i].checked) {
             return radioButtons[i].id;
         }
@@ -49,14 +47,6 @@ function createLi(task) {
     const label = document.createElement('label');
     label.className = 'new-checkbox';
     label.htmlFor = task.id;
-    const changeTextStyle = () => {
-        if (!inputCheckbox.checked) {
-            inputTodo.classList.add('checked-crossed-todo');
-        } else {
-            inputTodo.classList.remove('checked-crossed-todo');
-        }
-    }
-    label.addEventListener('click', changeTextStyle);
     li.appendChild(label);
 
     const inputTodo = document.createElement('input');
@@ -71,7 +61,6 @@ function createLi(task) {
     const deleteTask = () => {
         removeButton.removeEventListener('click', deleteTask);
         li.remove();
-        todosCount--;
         const currCheckedRadioButtonId = getCheckedRadioButtonId();
         updateShownTodos(currCheckedRadioButtonId);
     }
@@ -88,19 +77,24 @@ function selectAll() {
     }
 }
 
+function updateItemsCount(inactiveTodos) {
+    const todosCount = document.querySelectorAll('li').length;
+    itemsCount.textContent = `${todosCount - inactiveTodos} items left`;
+}
+
 function updateShownTodos(id) {
     const todosArray = document.getElementsByTagName('li');
-    let currTodosCounter = 0;
+    let currentInactiveTodos = 0;
     for (let i = 0; i < todosArray.length; i++) {
         const todoState = todosArray[i].firstChild.checked;
         if (id === 'radio-2' && todoState || id === 'radio-3' && !todoState) {
-            todosArray[i].style.display = "none";
-            currTodosCounter++;
+            todosArray[i].classList.add('hidden');
+            currentInactiveTodos++;
         } else {
-            todosArray[i].style.display = "flex";
+            todosArray[i].classList.remove('hidden');
         }
     }
-    itemsCount.textContent = `${todosCount - currTodosCounter} items left`;
+    updateItemsCount(currentInactiveTodos);
 }
 
 function displayModeListener(e) {
@@ -112,10 +106,33 @@ function clearTasks() {
     for (let i = todosArray.length - 1; i > -1; i--) {
         todosArray[i].remove();
     }
-    todosCount = 0;
-    itemsCount.textContent = `${todosCount} items left`;
+    updateItemsCount(0);
 }
 
+function getInputElementById(id) {
+    const liList = document.getElementsByTagName('li');
+    for (let i = 0; i < liList.length; i++) {
+        const currentLi = liList[i];
+        if (currentLi.querySelector('.checkbox').id === id) {
+            return currentLi.querySelector('.todo-input');
+        }
+    }
+}
+
+function changeTodoTextStyle(evt) {
+    if (evt.target.className !== 'checkbox') {
+        return;
+    }
+    const checkboxState =  evt.target.checked;
+    const currentInputTodoElement = getInputElementById(evt.target.id);
+    if (checkboxState) {
+        currentInputTodoElement.classList.add('checked-crossed-todo');
+    } else {
+        currentInputTodoElement.classList.remove('checked-crossed-todo');
+    }
+}
+
+ul.addEventListener('click', changeTodoTextStyle);
 form.addEventListener('submit', addTask);
 selectAllButton.addEventListener('click', selectAll);
 todoDisplayMode.addEventListener('click', displayModeListener);
