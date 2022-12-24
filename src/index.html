@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>TODO APP</title>
-    <link rel="stylesheet" href="style.scss">
+    <link rel="stylesheet" href="style.css">
+    <script src="./index.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,40 +16,18 @@
         <main role="main">
             <section class="new-todo">
                 <button class="select-all-button" aria-label="select all"></button>
-                <input class="new-todo-text" type="text" placeholder="What needs to be done?" aria-label="add todo">
+                <form action="#" method="post" class="new-todo-form">
+                    <input class="new-todo-text" id="description" type="text" placeholder="What needs to be done?" aria-label="add todo">
+                </form>
             </section>
             <section class="todo-list-section">
                 <ul class="todo-list">
-                    <li class="todo-elem">
-                        <input id="check1" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check1"> </label>
-                        <input class="todo-input" type="text" value="HTML">
-                        <button class="remove-button" aria-label="close button"></button>
-                    </li>
-                    <li class="todo-elem">
-                        <input id="check2" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check2"> </label>
-                        <input class="todo-input" type="text" value="CSS">
-                        <button class="remove-button" aria-label="close button"></button>
-                    </li>
-                    <li class="todo-elem">
-                        <input id="check3" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check3"> </label>
-                        <input class="todo-input" type="text" value="JS">
-                        <button class="remove-button" aria-label="close button"></button>
-                    </li>
-                    <li class="todo-elem">
-                        <input id="check4" class="checkbox" type="checkbox">
-                        <label class="new-checkbox" for="check4"></label>
-                        <input class="todo-input" type="text" value="JS tools">
-                        <button class="remove-button" aria-label="close button"></button>
-                    </li>
                 </ul>
             </section>
         </main>
         <footer class="bot">
             <section class="bot-wrapper">
-                <span class="items-count">3 items left</span>
+                <span class="items-count">0 items left</span>
                 <span role="radiogroup" aria-label="todos display mode" class="radio-group-bot">
                     <label class="display-mode-label">
                         <input id="radio-1" type="radio" name="radio" aria-label="all todos" checked>
